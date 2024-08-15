@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <title>title</title>
+</head>
+<body>
+    <h1>Trignometry Functions Menu</h1>
+    <select id="menu">
+        <option value="sin" id="sin">sin</option>
+        <option value="cos" id="cos">cos</option>
+        <option value="tan" id="tan">tan</option>
+    </select><br>
+    
+    <input type="text" id="angl" placeholder="Enter angle in degrees">
+    <br><br>
+    <button onclick="handleJob()">Execute</button>
+    
+    <br><br>
+
+        <div class="result" id="result"></div>
+
+        
+    <script>
+        function calTrigo(){
+            return Math.sin(arguments[0]* Math.PI / 180 ) ;
+        }
+
+        function handleJob(){
+            var men=document.getElementById("menu").value;
+            document.getElementById("result").innerHTML= men;
+
+            var angle =  parseFloat(document.getElementById("angl").value);
+
+            if (!isNaN(angle)) {
+                switch(men){
+                    case "sin":                           
+                        document.getElementById("result").innerHTML = " Value of "+ men+ " "+ angle+ " is "+ calTrigo(angle);
+                    
+                    case "cos":                           
+                        document.getElementById("result").innerHTML = " Value of "+ men+ " "+ angle+ " is "+ Math.cos(angle*Math.PI / 180);
+                    
+                    case "tan":                           
+                        document.getElementById("result").innerHTML = " Value of "+ men+ " "+ angle+ " is "+ Math.tan(angle*Math.PI / 180);
+                    
+                    
+                    }
+
+            }
+            else {
+                document.getElementById("result").innerHTML = "Please enter a valid number!";
+                
+            }
+           
+
+        }
+        
+    </script>
+</body>
+</html>
